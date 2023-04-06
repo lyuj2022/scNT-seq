@@ -19,7 +19,7 @@ my $file_bn=$1 if ($bn =~/(.*)\.bam$/);
 open (IN,"samtools view -h $in |") or die "Unable to read from BAM file $in: $!\n";
 while (<IN>) {
    chomp;
-   if (/GE:Z:(\S+)/) {
+   if (/GE:Z:(\S+)/) { # (\S+) matches one or more non-whitespace characters and captures them for later use.
       my $gene = $1;
       my @array = split "\t";
 	  if ($array[4] > 10) {
